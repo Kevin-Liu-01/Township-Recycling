@@ -21,7 +21,7 @@ const features = [
     icon: ClockIcon,
   },
   {
-    name: 'Keep your popularity above 0%',
+    name: 'Keep your popularity above 0',
     description:
       'While leaders are very powerful, their power rests in the judgement of their constituents. All proposals must have the support of the people, and their support will reflect in how they view you. If your popularity falls below 0, the game is over.',
     icon: ChatIcon,

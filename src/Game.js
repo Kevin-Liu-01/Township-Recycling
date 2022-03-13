@@ -313,7 +313,7 @@ function Simulator() {
           </div>
 
           <div className="px-4 py-6 sm:px-0" >
-            <div className="object-contain columns-4 border-4 border-dashed border-gray-400 rounded-lg h-96 mt-1 flex  flex-col sm:flex-row sm:flex-wrap sm:mt-0  bg-green-300" >
+            <div className="overflow-auto object-contain columns-4 border-4 border-dashed border-gray-400 rounded-lg h-96 mt-1 flex  flex-col sm:flex-row sm:flex-wrap sm:mt-0  bg-green-300" >
 
               {turn == 20 || yourPopularity<=0 ? 
                 <>{resultsScreen()}</>
@@ -363,7 +363,7 @@ function Simulator() {
 
             </div>
           </div>
-          Version 1.0          </div>
+          Version 1.1         </div>
       </main>
 
     </div>
