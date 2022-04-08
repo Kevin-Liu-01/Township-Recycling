@@ -6,17 +6,15 @@ import { setRecyclingPercentage, setYourMoney, setTurn } from './storeSlice'
 
 import {
   ChatIcon,
-  TruckIcon,
+  ChartSquareBarIcon,
   CheckIcon,
   ClockIcon,
   CurrencyDollarIcon,
   CursorClickIcon,
   TemplateIcon,
   ClipboardListIcon, GlobeAltIcon,
-  UsersIcon, UserIcon, ReplyIcon, BriefcaseIcon, LightBulbIcon, TrashIcon, DatabaseIcon, SpeakerphoneIcon, ScaleIcon, CodeIcon, OfficeBuildingIcon
+  UsersIcon, UserIcon, ReplyIcon, BriefcaseIcon, LightBulbIcon, TrashIcon, DatabaseIcon, SpeakerphoneIcon, ScaleIcon, CodeIcon
 } from '@heroicons/react/solid'
-import { clear } from '@testing-library/user-event/dist/clear';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 const proposals = [
   {
@@ -33,6 +31,14 @@ const proposals = [
     icon: <TemplateIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 8,
     money: -10,
+  },
+  {
+    name: 'Awareness Campaign: Going Green',
+    description:
+      'Promote environmentally friendly and ecologically responsible decisions and lifestyles',
+    icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 3,
+    money: -4,
   }, {
     name: 'Ad Campaign (Akula Oil)',
     description:
@@ -58,15 +64,60 @@ const proposals = [
     name: 'Establish a local recycling facility',
     description:
       'Construct a new MRF (Multi-Reuse Facility) to recycle plastics.',
-    icon: <OfficeBuildingIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 15,
     money: -20,
+  },{
+    name: 'Implement RFID systems',
+    description:
+      'Integrate smart chips to replace traditional recycling symbols and streamline waste management.',
+    icon: <ChartSquareBarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 2,
+    money: -4,
+  },
+  {
+    name: 'Support Smart Trash ',
+    description:
+      'Fund smart receptacles to track residents\' habits and guide municipal actions.',
+    icon: <LightBulbIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 3,
+    money: -4,
+  },{
+    name: 'Implement Chemical Recycling',
+    description:
+      'Use heat and chemical reactions to recycle used plastic into new plastic, fuels, and other chemicals.',
+    icon: <TrashIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 5,
+    money: -5,
+  },{
+    name: 'Publish Jobs Report',
+    description:
+      'Release information about how recycling centers and waste management have increased job growth.',
+    icon: <ChartSquareBarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 4,
+    money: -2,
+  },
+  {
+    name: 'Release Economic Data',
+    description:
+      'Publish statistics regarding economic growth related to recycling projects',
+    icon: <ChartSquareBarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 4,
+    money: -2,
+  },
+  {
+    name: 'Manufacturing Negotiations',
+    description:
+      'Negotiate new contracts with companies to switch to cheaper manufacturing with recycled materials.',
+    icon: <BriefcaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 3,
+    money: -3,
   },
   {
     name: 'Open a new "recycled" park',
     description:
       'Fund a park made completely out of recycled plastics',
-    icon: <OfficeBuildingIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -2,
   },
@@ -95,7 +146,7 @@ const proposals = [
     money: -1.5,
   },
   {
-    name: 'Reduce oil investments',
+    name: 'Reduce Akula Oil investments',
     description:
       'Sell government shares of oil corporations',
     icon: <CurrencyDollarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
@@ -109,16 +160,23 @@ const proposals = [
     recycling: 2,
     money: 0.5,
   }, {
+    name: 'Tax plastic manufacturing',
+    description:
+      'Tax every ton of plastic produced in local factories',
+    icon: <CurrencyDollarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    recycling: 3,
+    money: -1.5,
+  }, {
     name: 'Promote recycling in schools',
     description:
-      'Encourage teachers to educate students on recycling protocols',
+      'Invite plastic recycling advocates to educate students on recycling protocols',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 5,
     money: -3,
   }, {
-    name: 'Accept political favors from plastic companies',
+    name: 'Accept political favors from Akula Oil',
     description:
-      'Fund your campaigns with petrol dollars',
+      'Fund your campaigns with funding from the chemical industry',
     icon: <BriefcaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: -4,
     money: 5,
@@ -132,8 +190,8 @@ const proposals = [
   }, {
     name: 'Promote recycling in local newspaper ',
     description:
-      'Raise awareness for plastic recycling in the local press',
-    icon: <SpeakerphoneIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+      'Raise awareness for plastic recycling and advocacy groups in the local press',
+    icon: <TemplateIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -3,
   }, {
@@ -146,7 +204,7 @@ const proposals = [
   }, {
     name: 'Neighborhood Cleanup Day',
     description:
-      'Adopt a new day when community members clean up litter in their communities',
+      'Adopt a new government-sponsored day when residents clean up litter in their communities',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -3,
@@ -158,16 +216,16 @@ const proposals = [
     recycling: 8,
     money: -10,
   }, {
-    name: 'Open the Recycled Art Gallery',
+    name: 'Open a Recycled Art Gallery',
     description:
-      'Open an exhibition for artistic pieces of recycled plastics',
+      'Open an exhibition for artistic pieces using discarded and recycled plastics',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -2.5,
   }, {
     name: 'Organize an Ocean Cleanup Effort',
     description:
-      'Coordinate a townwide event to clear litter from beaches',
+      'Coordinate a townwide event to clear litter from beaches and water sources',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -3,
@@ -182,14 +240,14 @@ const proposals = [
     name: 'Open PET recycling facilities',
     description:
       'Introduce facilities to chemically break down PET into raw materials. PET is often used to make water bottles.',
-    icon: <OfficeBuildingIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 6,
     money: -7,
   }, {
     name: 'Open HDPE recycling facilities',
     description:
       'Introduce facilities to shred HDPE into reusable pellets. HDPE is often used to make bins and containers.',
-    icon: <OfficeBuildingIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 7,
     money: -8,
   }, {
@@ -232,7 +290,7 @@ const proposals = [
     name: 'Greenlight Plastic Packaging Facilities',
     description:
       'Allow plastic recycling companies to establish factories in your town',
-    icon: <OfficeBuildingIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
+    icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: -6,
     money: 4.5,
   }, {
@@ -347,7 +405,7 @@ function Simulator() {
     <div className="bg-green-200 ">
       <div className="lg:text-center">
         <p className=" lg:text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl mt-3">
-          <div>Township: Recycling Plastics</div>
+          <div className="text-center">Township: Recycling Plastics</div>
         </p>
         <div className="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
           <h1 className="text-xl text-gray-700">As the mayor of a small town, you must bring the plastic recycling rate of your community up to 85%. Over 20 turns, you must approve various proposals to increase the plastic recycling rate of the town, while also keeping the town government funded. Your decisions will appear in the record section.</h1>
@@ -360,7 +418,7 @@ function Simulator() {
             <div className="mt-2 ml-2 mb-2 mr-2 flex-1 min-w-0">
               <div className="mt-1  mb-2 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
 
-                <div className="grow w-24 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <GlobeAltIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                   Recycling Rate:  {recyclingPercentage < 85 ?
                     <div class="ml-1 inline-block text-red-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>
@@ -368,59 +426,68 @@ function Simulator() {
                     <div class="ml-1 inline-block text-green-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>}
 
                 </div>
-                <div className="grow w-24 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <ClockIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                   Turn: {turn} of 20
 
                 </div>
-                <div className="grow w-24 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <CurrencyDollarIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
-                  Town Treasury: {yourMoney}K
+                  Town Treasury: {yourMoney > 0 ?
+          <div class="ml-1 inline-block text-green-700"> {yourMoney}K</div>
+          :
+          <div class="ml-1 inline-block text-red-700"> {yourMoney}K</div>
+        }
 
                 </div>
-                <button className={turn == 1 ? " flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "flex items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
+                <button className={turn == 1 ? "text-center  flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "flex text-center  items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
                   <CursorClickIcon className="ml-2 flex-shrink-0 mr-0.5 h-4 w-4 text-black-400" aria-hidden="true" /><div className="ml-0.5  mb-0.5 mt-0.5 mr-2.5"> Expand</div>
                 </button>
               </div>
-              <div className="items-center text-center grow border-2 border border-gray-300 rounded-lg bg-white mt-3 mb-1 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 ">
+              <div className="h-10 items-center text-center grow border-2 border border-gray-300 rounded-lg bg-white mt-3 mb-1 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 ">
                 <div className="mt-1.5 mb-1.5 ml-4 flex-shrink-0 flex items-center text-sm text-gray-700">
                   <DatabaseIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-700" aria-hidden="true" />
-                  Nonrenewable Resource
+                  Infrastructure
                 </div>
                 <div className="mt-1.5 mb-1.5  flex-shrink-0 flex items-center text-sm text-gray-700">
-                  <BriefcaseIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-orange-900" aria-hidden="true" />
+                  <BriefcaseIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-orange-700" aria-hidden="true" />
                   Corporate Interest
+                </div>
+                
+                
+                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
+                  <ScaleIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-orange-500" aria-hidden="true" />
+                  Legislation
+                </div>
+                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
+                  <TemplateIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-red-600" aria-hidden="true" />
+                  Promotional Material
+                </div>
+                <div className="mt-1.5 mb-1.5 flex-shrink-0 flex items-center text-sm text-gray-700">
+                  <LightBulbIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-yellow-400" aria-hidden="true" />
+                  Research
                 </div>
                 
                 <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
                   <CurrencyDollarIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-green-700" aria-hidden="true" />
                   Finances
                 </div>
-                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
-                  <ScaleIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-orange-700" aria-hidden="true" />
-                  Legislation
-                </div>
-                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
-                  <TrashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-600" aria-hidden="true" />
-                  Recycling
-                </div>
-                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
-                  <OfficeBuildingIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-red-800" aria-hidden="true" />
-                  Infrastructure
-                </div>
-                
                 <div className="mt-1.5 mb-1.5 flex-shrink-0 flex items-center text-sm text-gray-700">
                   <SpeakerphoneIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-blue-800" aria-hidden="true" />
                   Advocacy
                 </div>
                 <div className="mt-1.5 mb-1.5 flex-shrink-0 flex items-center text-sm text-gray-700">
-                  <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-black-400" aria-hidden="true" />
+                  <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-purple-400" aria-hidden="true" />
                   Community
                 </div>
-                <div className="mt-1.5 mb-1.5 flex-shrink-0 flex items-center text-sm text-gray-700">
-                  <LightBulbIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-yellow-400" aria-hidden="true" />
-                  Research
+                <div className="mt-1.5 mb-1.5 flex-shrink-0  flex items-center text-sm text-gray-700">
+                  <TrashIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-600" aria-hidden="true" />
+                  Recycling
                 </div>
+                
+              
+                
+                
                 
               </div>
             </div>
@@ -433,23 +500,23 @@ function Simulator() {
               {turn == 20 || yourMoney <= 0 || recyclingPercentage > 85 || recyclingPercentage <= 10 ?
                 <>{resultsScreen()}</>
                 : <>
-                  <div className="grow inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2">
-                    <div className="object-contain">{randomProposal()}</div>
+                  <div className="grow  inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2">
+                    <div className="object-contain overflow-auto">{randomProposal()}</div>
 
 
                   </div>
                   <div className="grow inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2 ">
-                    <div className="object-contain">{randomProposal()}</div>
+                    <div className="object-contain overflow-auto">{randomProposal()}</div>
 
 
                   </div>
                   <div className="grow inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2 ">
-                    <div className="object-contain">{randomProposal()}</div>
+                    <div className="object-contain overflow-auto">{randomProposal()}</div>
 
 
                   </div>
                   <div className="grow inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2 ">
-                    <div className="object-contain">{randomProposal()}</div>
+                    <div className="object-contain overflow-auto">{randomProposal()}</div>
 
 
                   </div></>}
@@ -477,8 +544,8 @@ function Simulator() {
 
 
             </div>
-          </div>
-          Version 1.2         </div>
+          </div >
+          <div className="items-center text-center">Version 1.2</div>       </div>
       </main>
 
     </div>
