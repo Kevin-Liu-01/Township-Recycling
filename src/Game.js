@@ -408,7 +408,7 @@ function Simulator() {
           <div className="text-center">Township: Recycling Plastics</div>
         </p>
         <div className="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
-          <h1 className="text-xl text-gray-700">As the mayor of a small town, you must bring the plastic recycling rate of your community up to 85%. Over 20 turns, you must approve various proposals to increase the plastic recycling rate of the town, while also keeping the town government funded. Your decisions will appear in the record section.</h1>
+          <h1 className="text-center text-xl text-gray-700">As the mayor of a small town, you must bring the plastic recycling rate of your community up to 85%. Over 20 turns, you must approve various proposals to increase the plastic recycling rate of the town, while also keeping the town government funded. Your decisions will appear in the record section.</h1>
         </div>
       </div>
 
@@ -416,9 +416,9 @@ function Simulator() {
         <div className=" max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <div className=" border-2 border border-gray-400 rounded-lg bg-green-300 lg:flex lg:items-center lg:justify-between">
             <div className="mt-2 ml-2 mb-2 mr-2 flex-1 min-w-0">
-              <div className="mt-1  mb-2 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
+              <div className="  flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
 
-                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow mb-1 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <GlobeAltIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                   Recycling Rate:  {recyclingPercentage < 85 ?
                     <div class="ml-1 inline-block text-red-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>
@@ -426,12 +426,12 @@ function Simulator() {
                     <div class="ml-1 inline-block text-green-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>}
 
                 </div>
-                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow mb-1 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <ClockIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                   Turn: {turn} of 20
 
                 </div>
-                <div className="grow inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <div className="grow mb-1 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <CurrencyDollarIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
                   Town Treasury: {yourMoney > 0 ?
           <div class="ml-1 inline-block text-green-700"> {yourMoney}K</div>
@@ -440,11 +440,11 @@ function Simulator() {
         }
 
                 </div>
-                <button className={turn == 1 ? "text-center  flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "flex text-center  items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
+                <button className={turn == 1 ? "text-center mb-1  flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "flex text-center  items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
                   <CursorClickIcon className="ml-2 flex-shrink-0 mr-0.5 h-4 w-4 text-black-400" aria-hidden="true" /><div className="ml-0.5  mb-0.5 mt-0.5 mr-2.5"> Expand</div>
                 </button>
               </div>
-              <div className="h-10 items-center text-center grow border-2 border border-gray-300 rounded-lg bg-white mt-3 mb-1 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 ">
+              <div className="overflow-auto h-10 items-center text-center grow border-2 border border-gray-300 rounded-lg bg-white mt-2 mb-1 flex flex-col sm:flex-row sm:flex-wrap sm:space-x-6 ">
                 <div className="mt-1.5 mb-1.5 ml-4 flex-shrink-0 flex items-center text-sm text-gray-700">
                   <DatabaseIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-700" aria-hidden="true" />
                   Infrastructure
