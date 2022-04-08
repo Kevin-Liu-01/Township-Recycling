@@ -544,8 +544,8 @@ function Simulator() {
 
 
             </div>
-          </div>
-          Version 1.2         </div>
+          </div >
+          <div className="items-center text-center">Version 1.2</div>       </div>
       </main>
 
     </div>
