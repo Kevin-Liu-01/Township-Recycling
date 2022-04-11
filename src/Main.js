@@ -4,7 +4,7 @@ import { ClockIcon, CurrencyDollarIcon, TrashIcon, ScaleIcon,ChatIcon } from '@h
 const features = [
   
   {
-    name: 'Increase recycling rates to 85% ',
+    name: 'Increase recycling rates to 65% ',
     description:
       'Less than 8.7% of plastic is recycled in the United States, for more than 3 million tons of plastic trash generated. As such, the objective of the game is to increase recycling rates by approving proposals that offer beneficial programs.',
     icon: TrashIcon,

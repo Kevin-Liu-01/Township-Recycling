@@ -27,15 +27,15 @@ const proposals = [
   }, {
     name: 'Ad Campaign (Going Green)',
     description:
-      'Pay for ads for Going Green, a movement to increase recycling rates among population centers and decrease fossil fuel usage.',
+      'Pay for ads for Going Green, a movement to increase plastic recycling rates and decrease fossil fuel usage.',
     icon: <TemplateIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
-    recycling: 8,
-    money: -10,
+    recycling: 4,
+    money: -6,
   },
   {
     name: 'Awareness Campaign: Going Green',
     description:
-      'Promote environmentally friendly and ecologically responsible decisions and lifestyles',
+      'Promote environmentally friendly and ecologically responsible decisions and lifestyles related to plastic usage',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -4,
@@ -49,10 +49,10 @@ const proposals = [
   }, {
     name: 'Support Depolymerization Research',
     description:
-      'Examine chemical recycling to turn polyester and polystyrene into their raw materials.',
+      'Examine alternative recycling methods to turn polyester and polystyrene into their raw materials.',
     icon: <LightBulbIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
-    recycling: 10,
-    money: -20,
+    recycling: 11,
+    money: -15,
   }, {
     name: 'Support Microbial Recycling Research',
     description:
@@ -61,9 +61,9 @@ const proposals = [
     recycling: 8,
     money: -14,
   }, {
-    name: 'Establish a local recycling facility',
+    name: 'Establish local recycling facilities',
     description:
-      'Construct a new MRF (Multi-Reuse Facility) to recycle plastics.',
+      'Construct new MRF (Multi-Reuse Facilities) to recycle plastics and produce new materials.',
     icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 15,
     money: -20,
@@ -76,23 +76,23 @@ const proposals = [
     money: -4,
   },
   {
-    name: 'Support Smart Trash ',
+    name: 'Support Smart Trash systems',
     description:
       'Fund smart receptacles to track residents\' habits and guide municipal actions.',
     icon: <LightBulbIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -4,
   },{
-    name: 'Implement Chemical Recycling',
+    name: 'Implement Chemical Recycling (Pyrolysis)',
     description:
-      'Use heat and chemical reactions to recycle used plastic into new plastic, fuels, and other chemicals.',
+      'Use heat and chemical reactions to decompose used plastic into new materials, fuels, and  chemicals.',
     icon: <TrashIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 5,
     money: -5,
   },{
     name: 'Publish Jobs Report',
     description:
-      'Release information about how recycling centers and waste management have increased job growth.',
+      'Release information about how plastic recycling centers and green jobs have increased jobs ~10 times as much as standard waste management.',
     icon: <ChartSquareBarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 4,
     money: -2,
@@ -100,7 +100,7 @@ const proposals = [
   {
     name: 'Release Economic Data',
     description:
-      'Publish statistics regarding economic growth related to recycling projects',
+      'Publish statistics regarding how recycling plastic has saved millions of spending on landfills and energy costs related to production',
     icon: <ChartSquareBarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 4,
     money: -2,
@@ -114,17 +114,17 @@ const proposals = [
     money: -3,
   },
   {
-    name: 'Open a new "recycled" park',
+    name: 'Open a new "Recycled" Park',
     description:
-      'Fund a park made completely out of recycled plastics',
+      'Grant approval to a new municipal park with equipment made completely out of recycled plastics',
     icon: <DatabaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -2,
   },
   {
-    name: 'Support recycling initiatives',
+    name: 'Support plastic littering outreach',
     description:
-      'Offer your support to efforts to promote plastic recycling',
+      'Offer your support to efforts to promote awareness over widespread plastic littering',
     icon: <SpeakerphoneIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 1,
     money: -0.5,
@@ -132,7 +132,7 @@ const proposals = [
   {
     name: 'Install recycling bins in public spaces',
     description:
-      'Disperse designated plastic recycling areas throughout public spaces',
+      'Disperse designated plastic recycling areas throughout public spaces to combat littering',
     icon: <TrashIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -1.5,
@@ -148,7 +148,7 @@ const proposals = [
   {
     name: 'Reduce Akula Oil investments',
     description:
-      'Sell government shares of oil corporations',
+      'Sell government shares of oil corporations and plastic producers',
     icon: <CurrencyDollarIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 2,
     money: -2,
@@ -169,21 +169,21 @@ const proposals = [
   }, {
     name: 'Promote recycling in schools',
     description:
-      'Invite plastic recycling advocates to educate students on recycling protocols',
+      'Invite plastic recycling advocates like Trex® to educate students on recycling protocols',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 5,
     money: -3,
   }, {
     name: 'Accept political favors from Akula Oil',
     description:
-      'Fund your campaigns with funding from the chemical industry',
+      'Fund political ventures and campaigns with the backing of industrial sponsors',
     icon: <BriefcaseIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: -4,
     money: 5,
   }, {
     name: 'Promote recycling to new homeowners ',
     description:
-      'Encourage new homeowners, the largest demographic contributing to littering, to recycle',
+      'Encourage new homeowners, the largest demographic contributing to littering, to recycle plastics',
     icon: <SpeakerphoneIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -5,
@@ -197,14 +197,14 @@ const proposals = [
   }, {
     name: 'Penalize plastic littering',
     description:
-      'Littering will become unlawful and punishable by fines',
+      'Littering will become illegal by law and accordingly punishable by fines',
     icon: <ScaleIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 5,
     money: -5,
   }, {
     name: 'Neighborhood Cleanup Day',
     description:
-      'Adopt a new government-sponsored day when residents clean up litter in their communities',
+      'Adopt a new township-sponsored day when residents clean up litter in their communities',
     icon: <UsersIcon className="inline-block -ml-0.5 mr-1 h-5 w-5 text-gray-500" aria-hidden="true" />,
     recycling: 3,
     money: -3,
@@ -371,7 +371,7 @@ function Simulator() {
   function resultsScreen() {
     return <div className=" flex  flex-col sm:flex-row sm:flex-wrap grow inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-100  mt-2 ml-2 mb-2 mr-2 ">
       <div className={toggle?"text-lg ml-2 mt-2 grow  h-80 items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50  mb-2 mr-2 ":"text-lg ml-2 mt-2 grow  h-40 items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50  mb-2 mr-2 "}>
-        <div className="text-lg ml-2 mt-2">Final recycling rate in your community: {(Math.round(recyclingPercentage * 100) / 100).toFixed(2) < 85 ?
+        <div className="text-lg ml-2 mt-2">Final recycling rate in your community: {(Math.round(recyclingPercentage * 100) / 100).toFixed(2) < 65 ?
           <div class="inline-block text-red-700"> {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}</div>
           :
           <div class="inline-block text-green-700"> {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}</div>
@@ -387,8 +387,8 @@ function Simulator() {
         </div>
       </div>
       <div className={toggle?"grow  h-80 items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 mt-2 ml-2 mb-2 mr-2 ":"grow  h-40 items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 mt-2 ml-2 mb-2 mr-2 "}>
-        {recyclingPercentage >= 85 ? <div className="text-lg ml-2 mt-2">You got the recycling rate in your community above 85%.</div> : <div className="text-lg ml-2 mt-2">Unfortunately, did you not increase recycling rates in your community enough.</div>}
-        {turn == 20 && recyclingPercentage < 85 ? <div className="text-lg ml-2 mt-2">You were unable to increase recycling rates enough before 20 turns.</div> : <div></div>}
+        {recyclingPercentage >= 65 ? <div className="text-lg ml-2 mt-2">You got the recycling rate in your community above 65%.</div> : <div className="text-lg ml-2 mt-2">Unfortunately, did you not increase recycling rates in your community enough.</div>}
+        {turn == 20 && recyclingPercentage < 65 ? <div className="text-lg ml-2 mt-2">You were unable to increase recycling rates enough before 20 turns.</div> : <div></div>}
         {yourMoney > 0 ? <div className="text-lg ml-2 mt-2">Thankfully, you did not spend too much money.</div> : <div className="text-lg ml-2 mt-2">You spent too much money and bankrupted the government.</div>}
         <button onClick={() => restart()}
           className="ml-2 mt-4 inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-1100 bg-white hover:bg-green-300 "
@@ -408,7 +408,7 @@ function Simulator() {
           <div className="text-center">Township: Recycling Plastics</div>
         </p>
         <div className="max-w-5xl mx-auto py-6 px-4 sm:px-6 lg:px-8 ">
-          <h1 className="text-center text-xl text-gray-700">As the mayor of a small town, you must bring the plastic recycling rate of your community up to 85%. Over 20 turns, you must approve various proposals to increase the plastic recycling rate of the town, while also keeping the town government funded. Your decisions will appear in the record section.</h1>
+          <h1 className="text-center text-xl text-gray-700">As the mayor of a small town, you must bring the plastic recycling rate of your community up to 65%. Over 20 turns, you must approve various proposals to increase the plastic recycling rate of the town, while also keeping the town government funded. Your decisions will appear in the record section.</h1>
         </div>
       </div>
 
@@ -420,7 +420,7 @@ function Simulator() {
 
                 <div className="grow mb-1 inline-flex items-center px-4 py-2 border-2 border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                   <GlobeAltIcon className="-ml-1 mr-2 h-5 w-5 text-gray-500" aria-hidden="true" />
-                  Recycling Rate:  {recyclingPercentage < 85 ?
+                  Recycling Rate:  {recyclingPercentage < 65 ?
                     <div class="ml-1 inline-block text-red-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>
                     :
                     <div class="ml-1 inline-block text-green-700">  {(Math.round(recyclingPercentage * 100) / 100).toFixed(2)}%</div>}
@@ -440,7 +440,7 @@ function Simulator() {
         }
 
                 </div>
-                <button className={turn == 1 ? "text-center mb-1  flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "flex text-center  items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
+                <button className={turn == 1 ? "text-center mb-1  flex items-center text-sm text-gray-700 border-2 border-gray-400 rounded-md bg-gray-200 hover:bg-green-50" : "text-center mb-1  flex items-center text-sm text-gray-400 border-2 border-gray-300 rounded-md bg-gray-100"} onClick={() => toggler()}>
                   <CursorClickIcon className="ml-2 flex-shrink-0 mr-0.5 h-4 w-4 text-black-400" aria-hidden="true" /><div className="ml-0.5  mb-0.5 mt-0.5 mr-2.5"> Expand</div>
                 </button>
               </div>
@@ -497,7 +497,7 @@ function Simulator() {
           <div className={toggle ? "grow px-4 py-6 sm:px-0" : "grow columns-2 px-4 py-6 sm:px-0"} >
             <div className="grow min-w-2xl overflow-auto object-contain columns-4 border-4 border-dashed border-gray-400 rounded-lg h-96 mt-1 flex  flex-col sm:flex-row sm:flex-wrap sm:mt-0  bg-green-300" >
 
-              {turn == 20 || yourMoney <= 0 || recyclingPercentage > 85 || recyclingPercentage <= 10 ?
+              {turn == 20 || yourMoney <= 0 || recyclingPercentage > 65 || recyclingPercentage <= 10 ?
                 <>{resultsScreen()}</>
                 : <>
                   <div className="grow  inline items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-green-50 hover:bg-gray-50 mt-2 ml-2 mb-2 mr-2">
@@ -529,9 +529,10 @@ function Simulator() {
               <ClipboardListIcon className="mb-1 ml-2 inline-block flex-shrink-0  h-5 w-5 text-gray-700 mr-1.5" aria-hidden="true" />
               <div className="inline-block text-lg font-bold text-gray-700 mb-3">
                 Your Record</div>
-              <div className={toggle ? "h-48 break-after-column overflow-auto border-2 border-gray-400 rounded-lg ml-2.5 mr-2.5 mt-1 flex  sm:flex-wrap sm:mt-0  bg-green-50 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" : "h-72 break-after-column overflow-auto border-2 border-gray-400 rounded-lg ml-2.5 mr-2.5 mt-1 flex  sm:flex-wrap sm:mt-0  bg-green-50 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"} >
-                <div>
-                  {
+              <div className={toggle ? "h-48 break-after-column overflow-auto border-2 border-gray-400 rounded-lg ml-2.5 mr-2.5 mt-1 flex  sm:flex-wrap sm:mt-0  bg-green-50 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" : " h-72 break-after-column overflow-auto border-2 border-gray-400 rounded-lg ml-2.5 mr-2.5 mt-1 flex  sm:flex-wrap sm:mt-0  bg-green-50 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"} >
+                {
+                <div className="grow">
+                  {record.length==0?<div className="text-center font-bold text-gray-400 mt-20">Selected proposals will show up here.</div>:
 
                     record.map((record) => (
                       <div className="ml-2 ">
@@ -540,6 +541,7 @@ function Simulator() {
                       </div>
                     ))}
                 </div>
+                  }   
               </div>
 
 
